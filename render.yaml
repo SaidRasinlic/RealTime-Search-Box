@@ -5,7 +5,6 @@ services:
     plan: free 
     maxmemoryPolicy: allkeys-lfu
   - type: web
-    region: frankfurt
     name: realtime-search-box
     plan: free
     env: ruby
