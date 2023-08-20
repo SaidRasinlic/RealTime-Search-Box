@@ -1,0 +1,17 @@
+<!-- app/views/search_logs/_search_logs.html.erb -->
+<table class="partial-table">
+  <thead>
+    <tr>
+      <th>Search Query</th>
+      <th>Search Count</th>
+    </tr>
+  </thead>
+  <tbody id="search-log">
+    <% @search_logs.each do |query, count| %>
+      <tr data-query="<%= query %>">
+        <td><%= query %></td>
+        <td><%= count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

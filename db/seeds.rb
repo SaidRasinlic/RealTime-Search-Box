@@ -1,0 +1,17 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+
+Article.create(title: 'What is Elon Musk famous for?', content: 'Duis anim et in duis cillum quis esse esse ea tempor esse esse labore. Velit id dolor mollit ex dolore. Labore proident et occaecat magna do officia consequat non esse magna fugiat. Et non minim duis dolore dolor ex exercitation ullamco dolore velit sit. Amet sunt ex dolor eu. Anim esse aliqua velit sunt occaecat nostrud laborum sit eiusmod Lorem duis pariatur quis. Minim cillum irure Lorem ut pariatur eu veniam proident do.')
+Article.create(title: 'Jeff Bezos net worth', content: 'Pariatur incididunt laborum sint est ea velit deserunt enim do ad consectetur ullamco anim. Ipsum aliqua eu veniam nostrud id ipsum ullamco mollit ad. Ut sunt sunt minim sunt reprehenderit cillum labore consequat. Nostrud enim aliquip dolor non sint aliquip sit eiusmod quis pariatur velit. Qui enim irure esse esse anim reprehenderit ad reprehenderit cupidatat.')
+Article.create(title: 'Best RoR developers in the world', content: 'Pariatur incididunt laborum sint est ea velit deserunt enim do ad consectetur ullamco anim. Ipsum aliqua eu veniam nostrud id ipsum ullamco mollit ad. Ut sunt sunt minim sunt reprehenderit cillum labore consequat. Nostrud enim aliquip dolor non sint aliquip sit eiusmod quis pariatur velit. Qui enim irure esse esse anim reprehenderit ad reprehenderit cupidatat.')
+Article.create(title: 'How old is Jeff Bezos?', content: 'Pariatur incididunt laborum sint est ea velit deserunt enim do ad consectetur ullamco anim. Ipsum aliqua eu veniam nostrud id ipsum ullamco mollit ad. Ut sunt sunt minim sunt reprehenderit cillum labore consequat. Nostrud enim aliquip dolor non sint aliquip sit eiusmod quis pariatur velit. Qui enim irure esse esse anim reprehenderit ad reprehenderit cupidatat.')
+Article.create(title: 'How is the weather in your town?', content: 'Pariatur incididunt laborum sint est ea velit deserunt enim do ad consectetur ullamco anim. Ipsum aliqua eu veniam nostrud id ipsum ullamco mollit ad. Ut sunt sunt minim sunt reprehenderit cillum labore consequat. Nostrud enim aliquip dolor non sint aliquip sit eiusmod quis pariatur velit. Qui enim irure esse esse anim reprehenderit ad reprehenderit cupidatat.')
+Article.create(title: 'Best cars 2023', content: 'Pariatur incididunt laborum sint est ea velit deserunt enim do ad consectetur ullamco anim. Ipsum aliqua eu veniam nostrud id ipsum ullamco mollit ad. Ut sunt sunt minim sunt reprehenderit cillum labore consequat. Nostrud enim aliquip dolor non sint aliquip sit eiusmod quis pariatur velit. Qui enim irure esse esse anim reprehenderit ad reprehenderit cupidatat.')
+Article.create(title: 'Manchester United games season 23/24', content: 'Pariatur incididunt laborum sint est ea velit deserunt enim do ad consectetur ullamco anim. Ipsum aliqua eu veniam nostrud id ipsum ullamco mollit ad. Ut sunt sunt minim sunt reprehenderit cillum labore consequat. Nostrud enim aliquip dolor non sint aliquip sit eiusmod quis pariatur velit. Qui enim irure esse esse anim reprehenderit ad reprehenderit cupidatat.')
+
+# Add more sample articles

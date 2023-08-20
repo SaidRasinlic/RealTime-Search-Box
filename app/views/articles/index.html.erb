@@ -1,0 +1,70 @@
+<!-- app/views/articles/index.html.erb -->
+<div class="card-layout-wrapper">
+  <div class="search-box-wrapper">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="search-box" placeholder="Search articles">
+  </div>
+  <div id="search-results"></div>
+  <div class="card-layout">
+    <div class="card-layout--col-one">
+      <div class="card-layout--col-one__inner_col_one">
+        <div class="square">
+          <h2>Global most searched query: </h2>
+          <p id="global-most-searched"><%= @most_searched_data_globally[:query] %> <%= @most_searched_data_globally[:count] %></p>
+        </div>
+        <div class="square">
+          <h2> Your all-time most searched query: </h2>
+          <p id="local-most-searched">
+            <% if @most_searched_query_per_user %>
+              <%= @most_searched_query_per_user %>
+              <%= @most_searched_query_per_user_count %>
+            <% else %>
+              N/A
+            <% end %>
+          </p>
+        </div>
+        <div class="square">
+          <h2>Your most searched today: </h2>
+          <p id="local-most-searched-today">
+            <% if @most_searched_query_today%>
+              <%= @most_searched_query_today[:query] %> <%=@most_searched_query_today[:count] %>
+            <% else %>
+              N/A
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <div class="card-layout--col-one__inner_col_two">
+        <div class="square">
+          <div style="max-width: 800px; margin: auto;">
+            <%= pie_chart @chart_data%>
+          </div>
+        </div>
+        <div class="square">
+          <h2>Matching search count: </h2>
+          <p id="matching-count"><%= @matching_search_logs_count %></p>
+        </div>
+        <div class="square">
+          <h2>Non-matching search count: </h2>
+          <p id="non-matching-count"><%= @non_matching_search_logs_count %></p>
+        </div>
+      </div>
+    </div>
+    <div class="card-layout--col-two">
+      <h2>Latest searches: </h2>
+      <%= render "search_logs", search_logs: @search_logs %>
+    </div>
+  </div>
+  <div class="destroy-cookie">
+    <%= link_to 'Restart all data', destroy_user_cookie_path %>
+  </div>
+  <div class="line-chart">
+    <%# <%= column_chart @chart_data_group_by_day_of_week %>
+    <h2>Searches by date of week</h2>
+    <div class="column-chart">
+      <%= column_chart @chart_data_group_by_day_of_week, xtitle: "Day of Week", ytitle: "Search Count", height: '300px' %>
+    </div>
+  </div>
+  <div class="table">
+  </div>
+</div>
