@@ -48,7 +48,7 @@ end
     query = params[:q]
     @articles = Article.where("title LIKE ?", "%#{query}%")
 
-    if user_signed_in?
+    if current_user
       current_user.search_logs.create(query: query)
     end
 

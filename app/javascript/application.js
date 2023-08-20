@@ -2,5 +2,4 @@
 import "./chartkick"
 import "./Chart.bundle"
 import "@fortawesome/fontawesome-free"
-// import "./channels/index"
 import "./search"
