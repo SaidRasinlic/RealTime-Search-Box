@@ -32,7 +32,11 @@ class SearchLog < ApplicationRecord
 
   def self.most_searched_query_globally
     result = group(:query).order(Arel.sql('COUNT(*) DESC')).limit(1).pluck(:query, Arel.sql('COUNT(*) AS count')).first
-    { query: result[0], count: result[1] }
+    if result
+      { query: result[0], count: result[1] }
+    else
+      { query: nil, count: 0 } # Default values if result is nil
+    end
   end
 
   def self.most_searched_query_count_globally(query)

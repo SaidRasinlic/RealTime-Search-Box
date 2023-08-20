@@ -1,15 +1,17 @@
-import consumer from "./consumer"
+/* import consumer from "./consumer";
+// ...
 
-consumer.subscriptions.create("SearchCountsChannel", {
+const chatChannel = consumer.subscriptions.create("SearchCountsChannel", {
   connected() {
-    // Called when the subscription is ready for use on the server
+    console.log("Connected to ChatChannel");
   },
-
-  disconnected() {
-    // Called when the subscription has been terminated by the server
-  },
-
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
+    console.log("Received data:", data);
   }
-});
+}); */
+
+// Manually subscribe to the channel
+// chatChannel.perform("subscribed");
+
+// Broadcast a message from Rails console
+// ActionCable.server.broadcast("chat", message: "Hello, world!");

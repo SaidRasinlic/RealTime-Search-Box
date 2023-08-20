@@ -38,6 +38,10 @@ class ArticlesController < ApplicationController
         @non_matching_search_logs_count += 1
       end
     end
+    # ActionCable.server.broadcast("search_counts", { message: "Nigga" })
+    
+    # ActionCable.server.broadcast("search_counts", { matching_count: 777, non_matching_count: 777 })
+
 end
 
   def search
@@ -85,6 +89,9 @@ end
       most_searched_data_globally: @most_searched_data_globally,
       most_searhed_query_today: @most_searched_query_today
     }
+
+    ActionCable.server.broadcast("search_counts", {most_searched_data_globally: @most_searched_data_globally})
+    # head :ok
   end
 
 end

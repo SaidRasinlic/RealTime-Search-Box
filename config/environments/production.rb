@@ -91,4 +91,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
+  config.cache_store = :redis_cache_store, {
+    url: ENV['REDIS_URL']
+  }
 end

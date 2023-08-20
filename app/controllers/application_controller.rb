@@ -20,8 +20,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  private
-
   def set_user_cookie
     unless cookies.signed[:user_id]
       user = User.create! # No need to specify ID
