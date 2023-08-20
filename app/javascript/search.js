@@ -7,14 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     received(data) {
       const mostSearchedGlobally = data.most_searched_data_globally;
-      console.log(mostSearchedGlobally);
       if (mostSearchedGlobally) {
         const query = mostSearchedGlobally.query;
         const count = mostSearchedGlobally.count;
         const globalMostSearched = document.getElementById("global-most-searched");
         globalMostSearched.textContent = `${query} ${count}`;
         // Now you can update your UI or perform any actions with the received data
-        console.log(`Most searched globally: Query: ${query}, Count: ${count}`);
     }
     }
   });
@@ -44,36 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(counts => {
       const matchingCount = document.getElementById("matching-count");
       const nonMatchingCount = document.getElementById("non-matching-count");
-      // const globalMostSearched = document.getElementById("global-most-searched");
       const localMostSearched = document.getElementById("local-most-searched");
       const localMostSearchedToday = document.getElementById("local-most-searched-today");
       matchingCount.textContent = `${counts.matching_count}`;
       nonMatchingCount.textContent = `${counts.non_matching_count}`;
-      // globalMostSearched.textContent = `${counts.most_searched_data_globally.query} ${counts.most_searched_data_globally.count}`;
       localMostSearched.textContent = `${counts.most_searched_query_per_user} ${counts.most_searched_query_per_user_count}`;
       localMostSearchedToday.textContent = `${counts.most_searhed_query_today.query} ${counts.most_searhed_query_today.count}`;
-
-      // const chatChannel = consumer.subscriptions.create("SearchCountsChannel", {
-      //   connected() {
-      //     console.log("Connected to ChatChannel");
-      //   },
-      //   received(data) {
-      //     console.log("Received data:", data);
-
-      //     const mostSearchedGlobally = data.most_searched_data_globally;
-      //     console.log(mostSearchedGlobally);
-      //     if (mostSearchedGlobally) {
-      //       const query = mostSearchedGlobally.query;
-      //       const count = mostSearchedGlobally.count;
-      //       const globalMostSearched = document.getElementById("global-most-searched");
-      //       globalMostSearched.textContent = `${query} ${count}`;
-      //       // Now you can update your UI or perform any actions with the received data
-      //       console.log(`Most searched globally: Query: ${query}, Count: ${count}`);
-      //   }
-      //   }
-      // });
-
-      // chatChannel.perform("subscribed");
     });
   }
 
