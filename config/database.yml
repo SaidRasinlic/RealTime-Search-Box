@@ -83,5 +83,5 @@ test:
 #
 production:
   <<: *default
-  database: realtime_search_box_prod
+  database: realtime_search_box_prod_05ap
   url: <%= ENV['DATABASE_URL'] %>
