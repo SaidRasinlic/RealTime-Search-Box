@@ -1,4 +1,9 @@
 services:
+  - type: redis
+    name: cache
+    ipAllowList: []
+    plan: free 
+    maxmemoryPolicy: allkeys-lfu
   - type: web
     name: realtime-search-box
     plan: free
@@ -12,29 +17,9 @@ services:
         fromDatabase:
           name: realtime_search_box_production
           property: connectionString
-
-# services:
-#   - type: redis
-#     name: cache
-#     ipAllowList: []
-#     plan: free 
-#     maxmemoryPolicy: allkeys-lfu
-#   - type: web
-#     name: realtime-search-box
-#     plan: free
-#     env: ruby
-#     buildCommand: "./bin/render-build.sh"
-#     startCommand: bundle exec rails s
-#     envVars:
-#       - key: RAILS_MASTER_KEY
-#         sync: false
-#       - key: DATABASE_URL
-#         fromDatabase:
-#           name: realtime_search_box_production
-#           property: connectionString
-#       - key: REDIS_URL
-#         fromService:
-#           type: redis
-#           name: cache
-#           property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: cache
+          property: connectionString
           
