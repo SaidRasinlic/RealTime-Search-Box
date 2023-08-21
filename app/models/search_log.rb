@@ -24,7 +24,11 @@ class SearchLog < ApplicationRecord
 
   def self.most_searched_query_and_count_per_user(user)
     result = where(user: user).group(:query).order(Arel.sql('COUNT(*) DESC')).limit(1).pluck(:query, Arel.sql('COUNT(*) AS count')).first
-    { query: result[0], count: result[1] }
+    if result
+      { query: result[0], count: result[1] }
+    else
+      { query: 'NA', count: '' }
+    end
   end
 
   def self.most_searched_query_globally
