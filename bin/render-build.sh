@@ -8,4 +8,3 @@ bundle exec rails assets:precompile RAILS_ENV=production
 bundle exec rails assets:clean
 bundle exec rails db:migrate
 bundle exec rails db:seed
-

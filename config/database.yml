@@ -85,4 +85,3 @@ production:
   <<: *default
   database: realtime_search_box_production
   url: <%= ENV['DATABASE_URL'] %>
-  
