@@ -5,8 +5,8 @@ class ArticlesController < ApplicationController
   
     @most_searched_query = SearchLog.most_searched_query
     @most_searched_count = SearchLog.query_count(@most_searched_query)
-    @most_searched_query_per_user = SearchLog.most_searched_query_per_user(current_user)
-    @most_searched_query_per_user_count = SearchLog.query_count(@most_searched_query_per_user)
+    @most_searched_query_and_count_per_user = SearchLog.most_searched_query_and_count_per_user(current_user)
+
     @most_searched_data_globally = SearchLog.most_searched_query_globally
     @most_searched_query_today = SearchLog.most_searched_query_per_user_today(current_user)
     @chart_data = current_user.search_logs.group(:query).count
@@ -15,9 +15,6 @@ class ArticlesController < ApplicationController
     .group("EXTRACT(DOW FROM created_at)")
     .count
     .transform_keys { |dow| Date::ABBR_DAYNAMES[dow.to_i] }
-
-    # @matching_search_logs = current_user.search_logs.where(query_result_count: 1..Float::INFINITY)
-
 
     @matching_search_logs_count = 0
     @non_matching_search_logs_count = 0
@@ -38,9 +35,6 @@ class ArticlesController < ApplicationController
         @non_matching_search_logs_count += 1
       end
     end
-    # ActionCable.server.broadcast("search_counts", { message: "Nigga" })
-    
-    # ActionCable.server.broadcast("search_counts", { matching_count: 777, non_matching_count: 777 })
 
 end
 
@@ -56,8 +50,8 @@ end
   end
 
   def update_search_counts
-    @most_searched_query_per_user = SearchLog.most_searched_query_per_user(current_user)
-    @most_searched_query_per_user_count = SearchLog.query_count(@most_searched_query_per_user)
+    @most_searched_query_and_count_per_user = SearchLog.most_searched_query_and_count_per_user(current_user)
+
     @most_searched_data_globally = SearchLog.most_searched_query_globally
     @most_searched_query_today = SearchLog.most_searched_query_per_user_today(current_user)
 
@@ -84,8 +78,7 @@ end
     render json: { 
       matching_count:  @matching_search_logs_count,
       non_matching_count:  @non_matching_search_logs_count,
-      most_searched_query_per_user: @most_searched_query_per_user,
-      most_searched_query_per_user_count: @most_searched_query_per_user_count,
+      most_searched_query_and_count_per_user: @most_searched_query_and_count_per_user,
       most_searched_data_globally: @most_searched_data_globally,
       most_searhed_query_today: @most_searched_query_today
     }

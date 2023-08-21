@@ -15,9 +15,9 @@
         <div class="square">
           <h2> Your all-time most searched query: </h2>
           <p id="local-most-searched">
-            <% if @most_searched_query_per_user %>
-              <%= @most_searched_query_per_user %>
-              <%= @most_searched_query_per_user_count %>
+            <% if @most_searched_query_and_count_per_user %>
+              <%= @most_searched_query_and_count_per_user[:query] %>
+              <%= @most_searched_query_and_count_per_user[:count] %>
             <% else %>
               N/A
             <% end %>

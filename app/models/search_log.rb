@@ -9,10 +9,7 @@ class SearchLog < ApplicationRecord
   def self.query_count(query)
     where(query: query).count
   end
-
-  def self.most_searched_query_per_user(user)
-    where(user: user).group(:query).order(Arel.sql('COUNT(*) DESC')).limit(1).pluck(:query).first
-  end
+  
 
   def self.most_searched_query_per_user_today(user)
     result = where(user: user, created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)

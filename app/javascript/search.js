@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const localMostSearchedToday = document.getElementById("local-most-searched-today");
       matchingCount.textContent = `${counts.matching_count}`;
       nonMatchingCount.textContent = `${counts.non_matching_count}`;
-      localMostSearched.textContent = `${counts.most_searched_query_per_user} ${counts.most_searched_query_per_user_count}`;
+      localMostSearched.textContent = `${counts.most_searched_query_and_count_per_user.query} ${counts.most_searched_query_and_count_per_user.count}`;
       localMostSearchedToday.textContent = `${counts.most_searhed_query_today.query} ${counts.most_searhed_query_today.count}`;
     });
   }
