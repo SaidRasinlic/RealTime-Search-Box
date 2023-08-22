@@ -14,6 +14,17 @@ This Real-Time Search app delivers instant search results as you type, powered b
 [Live Demo Link](https://realtime-search-box.onrender.com)
 
 
+## Documentation
+**If you want for search analytics to count your search as successful then make sure you pay attention to case sensivity for those stored _ARTICLES_**
+- Articles that are stored in DB (case-sensitive):
+  - `What is Elon Musk famous for?`
+  - `Jeff Bezos net worth`
+  - `Best RoR developers in the world`
+  - `How old is Jeff Bezos?`
+  - `How is the weather in your town?`
+  - `Best cars 2023`
+  - `Manchester United games season 23/24`
+
 ## Screenshot
 N/A
 
